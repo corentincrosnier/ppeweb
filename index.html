@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>GSB</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<style>
+			#root{
+				background-color:#aaa;
+			}
+			.col-center{
+				margin:150 auto;
+			}
+			#login-div{
+				background-color:#aaa;
+			}
+			#conn{
+				margin-top:10%;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				console.log("ready!");
+				$.ajax({
+					url : 'request.php?data=med',
+					type : 'GET', // Le type de la requête HTTP, ici devenu POST
+					//data : 'data=med', // On fait passer nos variables, exactement comme en GET, au script more_com.php
+					dataType : 'json',
+					success:function(data){
+						console.log(data);
+					},
+					error:function(status){
+						console.log("error");
+						console.log(status);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<!--<h1>GSB</h1>-->
+			<div class="row col-center">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-4">
+					<img src="img/gsb_logo.png"></img>
+				</div>
+				<div class="col-sm-4">
+					<form action="login.php" method="POST">
+						<div class="form_element">
+							<label>Nom :</label><br>
+							<input type="text" name="name" required placeholder="Nom">
+						</div>
+						<div class="form_element">
+							<label>Mot de passe :</label><br>
+							<input type="password" name="passwd" required>
+						</div>
+						<input id="conn" type="submit" value="connexion">
+					</form>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+	</body>
+</html>
