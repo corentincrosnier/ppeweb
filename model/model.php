@@ -2,8 +2,12 @@
 
 function getPraticien($numPraticien){
 	$db=connect();
+<<<<<<< HEAD
 	$request="SELECT p.*,tp.TYP_LIBELLE_TYPE_PRATICIEN FROM praticien p,type_praticien tp."
 		."WHERE p.PRA_NUM_PRATICIEN=:numPraticien AND tp.TYP_CODE_TYPE_PRATICIEN=p.TYP_CODE_TYPE_PRATICIEN";
+=======
+	$request="SELECT * FROM praticien WHERE PRA_NUM_PRATICIEN=:numPraticien";
+>>>>>>> 7d33d331dc78ae3bfc1082705d3412a817327fed
 	$stmt=$db->prepare($request);
 	$stmt->bindParam(":numPraticien",$numPraticien);
 	$stmt->execute();
@@ -12,8 +16,12 @@ function getPraticien($numPraticien){
 
 function getListPraticien(){
 	$db=connect();
+<<<<<<< HEAD
 	$request="SELECT p.*,tp.TYP_LIBELLE_TYPE_PRATICIEN FROM praticien p,type_praticien tp "
 		."WHERE tp.TYP_CODE_TYPE_PRATICIEN=p.TYP_CODE_TYPE_PRATICIEN ORDER BY p.PRA_NOM_PRATICIEN";
+=======
+	$request="SELECT * FROM praticien";
+>>>>>>> 7d33d331dc78ae3bfc1082705d3412a817327fed
 	$stmt=$db->prepare($request);
 	$stmt->execute();
 	$list=$stmt->fetchAll();

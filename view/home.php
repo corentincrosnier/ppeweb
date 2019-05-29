@@ -9,6 +9,7 @@
 				<th class="dhide">PRA_NUM_PRATICIEN</th>
 				<th>Nom</th>
 				<th>Prenom</th>
+<<<<<<< HEAD
 				<th>CP</th>
 				<th>Ville</th>
 				<th>Coefficient notoriété</th>
@@ -17,10 +18,28 @@
 					<th class="edit"></th>
 					<th class="delete"></th>
 				<?php endif; ?>
+=======
+				<th class="consult"></th>
+>>>>>>> 7d33d331dc78ae3bfc1082705d3412a817327fed
 			</tr>
 		</thead>
 	</table>
 </div>
+<<<<<<< HEAD
+=======
+    <!--<div class="news">
+        <h3>
+            <?= htmlspecialchars($data['PRA_NOM_PRATICIEN']) ?>
+            <em>le <?= $data['PRA_PRENOM_PRATICIEN'] ?></em>
+        </h3>
+        
+        <p>
+            <?= nl2br(htmlspecialchars($data['PRA_VILLE_PRATICIEN'])) ?>
+            <br />
+            <em><a href="post.php?id=<?= $data['PRA_NUM_PRATICIEN'] ?>">Commentaires</a></em>
+        </p>
+    </div>-->
+>>>>>>> 7d33d331dc78ae3bfc1082705d3412a817327fed
 	<script>
 		$(document).ready(function(){
 			var datatable = $('#table').DataTable({
@@ -61,12 +80,16 @@
 					{data: "PRA_NUM_PRATICIEN"},
 					{data: "PRA_NOM_PRATICIEN"},
 					{data: "PRA_PRENOM_PRATICIEN"},
+<<<<<<< HEAD
 					{data: "PRA_CP_PRATICIEN"},
 					{data: "PRA_VILLE_PRATICIEN"},
 					{data: "PRA_COEFNOTORIETE_PRATICIEN"},
 					{data: "TYP_LIBELLE_TYPE_PRATICIEN"},
 					<?php echo ($_SESSION['user']=='admin')?"{},{}":"";?>
 					
+=======
+					{}
+>>>>>>> 7d33d331dc78ae3bfc1082705d3412a817327fed
 				],
 				columnDefs: [
 					{
@@ -74,6 +97,7 @@
 						"visible": false,
 						"searchable": false
 					},{
+<<<<<<< HEAD
 						"targets": "edit",
 						"searchable": false,
 						"width":"10%",
@@ -105,6 +129,27 @@
 			$('#button').click( function () {
 				table.row('.selected').remove().draw( false );
 			} );
+=======
+						"targets": "consult",
+						"searchable": false,
+						"width":"10%",
+						"render": function(data, type, row) {
+							return '<button class="btn-consult" onClick="location.href=\'index.php?action=consult&id='+row['PRA_NUM_PRATICIEN']+'\'">CONSULTER</button>';
+							//return '<button>CONSULTER</button>';
+						}
+							//return '<a class="" target="_blank" s style="background:#fab62d;color:white;border:none;cursor:pointer;padding:13px 10px 5px;margin-right: 10px;" href="generator.php?facture=' + row['NUMERO_DEVIS'] + '&tf=' + 1 + '"><img src="icon/eye.png" style="width:20px;height:20px;"/></a>';
+					}/*
+						
+						},{
+						"targets": "supp",
+						"searchable": false,
+						"render": function (data, type, row) {
+						  return '<button style="background:#F44336;;color:white;border:none;cursor:pointer;padding:5px 10px;" request="Suppdev" sup="' + row['ID_DEVIS'] + '"><img style="width:20px;height:20px;" src="icon/trash.png"/></button>';
+						}
+						},*/
+					],
+			});
+>>>>>>> 7d33d331dc78ae3bfc1082705d3412a817327fed
 		});
 	</script>
 
