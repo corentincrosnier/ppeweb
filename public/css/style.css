@@ -1,0 +1,18 @@
+.form_element{
+	margin-top:3%;
+}
+#cont{
+	background-color:#ccc;
+}
+body{
+	background-color:#eee;
+}
+.col-center{
+	margin:150 auto;
+}
+#login-div{
+	background-color:#aaa;
+}
+#conn{
+	margin-top:10%;
+}
