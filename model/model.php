@@ -38,7 +38,6 @@ function login($nom,$matricule){
 	else{
 		return 'invalid information';
 	}
-	
 }
 
 function connect(){

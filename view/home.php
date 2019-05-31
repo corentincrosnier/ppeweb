@@ -2,7 +2,7 @@
 <div id="cont" class="container-fluid">
 	<h1>Mon super blog !</h1>
 	<p>Derniers billets du blog :</p>
-
+	<!--<button id="dlt-button">Supprimer</button>-->
 	<table id="table" width="100%" class="table table-striped table-bordered">
 		<thead>
 			<tr role="row">
@@ -19,13 +19,19 @@
 				<?php endif; ?>
 			</tr>
 		</thead>
+		<tbody>
+		</tbody>
 	</table>
 </div>
 	<script>
+		$.extend($.fn.dataTable.defaults,{
+			responsive:true
+		});
 		$(document).ready(function(){
-			var datatable = $('#table').DataTable({
+			var datatable=$('#table').DataTable({
 				"paging": true,
-				"autoWidth": true,
+				//"autoWidth": true,
+				"width": "70%",
 				"scrollCollapse": true,
 				"language": {
 					processing: "Traitement en cours...",
@@ -96,13 +102,26 @@
 					$(this).removeClass('selected');
 				}
 				else{
-					table.$('tr.selected').removeClass('selected');
+					datatable.$('tr.selected').removeClass('selected');
 					$(this).addClass('selected');
 				}
 			});
-			$('#button').click(function(){
-				table.row('.selected').remove().draw( false );
-			});
+			/*$('#dlt-button').click(function(){
+				datatable.row('.selected').remove({
+					buttons:[
+						{label: 'Cancel',fn:function(){this.close();}},
+						'Delete'
+					]
+				}).draw(false);
+			});*/
+			/*$('#table').on('click','tbody tr',function(){
+				datatable.row(this).delete({
+					buttons:[
+						{label: 'Cancel',fn:function(){this.close();}},
+						'Delete'
+					]
+				});
+			});*/
 		});
 	</script>
 
