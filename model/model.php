@@ -10,6 +10,35 @@ function getPraticien($numPraticien){
 	return $stmt;
 }
 
+function deletePraticienDb($idPraticien){
+	$db=connect();
+	$request="DELETE FROM praticien WHERE PRA_NUM_PRATICIEN=:numPraticien";
+	$stmt=$db->prepare($request);
+	//$stmt->bindParam(":numPraticien",$idPraticien);
+	$stmt->execute([':numPraticien' => $idPraticien]);
+}
+
+function editPraticienDb($num,$adresse,$cp,$ville,$coef,$type){
+	$db=connect();
+	$stmt=$db->prepare("UPDATE praticien SET PRA_ADRESSE_PRATICIEN=:adresse,PRA_CP_PRATICIEN=:cp,PRA_VILLE_PRATICIEN=:ville,PRA_COEFNOTORIETE_PRATICIEN=:coef,TYP_CODE_TYPE_PRATICIEN=:type WHERE PRA_NUM_PRATICIEN=:num");
+	$stmt->bindParam(':adresse',$adresse);
+	$stmt->bindParam(':cp',$cp);
+	$stmt->bindParam(':ville',$ville);
+	$stmt->bindParam(':coef',$coef);
+	$stmt->bindParam(':type',$type);
+	$stmt->bindParam(':num',$num);
+	$stmt->execute();
+}
+
+function getTypes(){
+	$db=connect();
+	$request="SELECT * FROM type_praticien";
+	$stmt=$db->prepare($request);
+	$stmt->execute();
+	$list=$stmt->fetchAll();
+	return $list;
+}
+
 function getListPraticien(){
 	$db=connect();
 	$request="SELECT p.*,tp.TYP_LIBELLE_TYPE_PRATICIEN FROM praticien p,type_praticien tp "

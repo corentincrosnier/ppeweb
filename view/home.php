@@ -1,7 +1,6 @@
 <?php ob_start(); ?>
 <div id="cont" class="container-fluid">
-	<h1>Mon super blog !</h1>
-	<p>Derniers billets du blog :</p>
+	<h1>GSB</h1>
 	<!--<button id="dlt-button">Supprimer</button>-->
 	<table id="table" width="100%" class="table table-striped table-bordered">
 		<thead>
